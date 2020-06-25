@@ -2,7 +2,6 @@ var issueContainerEl = document.querySelector("#issues-container");
 var limitWarningEl = document.querySelector("#limit-warning");
 var repoNameEl = document.querySelector("#repo-name");
 
-
 var getRepoName = function() {
     //grab repo name from url query sting
     var queryString = document.location.search;
@@ -20,9 +19,9 @@ var getRepoName = function() {
 
 var getRepoIssues = function(repo) {
     var apiUrl = "https://api.github.com/repos/" + repo + "/issues?direction=asc";
-    console.log(apiUrl);
+    console.log(apiUrl);//<<<<<<<<<<<<<ERROR x 2
     //make a get request to url
-    fetch(apiUrl).then(function(response) {
+    fetch(apiUrl).then(function(response) {//<<<<<<<<<<<<<<<<<ERROR
         //request was successful
         if (response.ok) {
             response.json().then(function(data) {
@@ -39,7 +38,7 @@ var getRepoIssues = function(repo) {
             document.location.replace("./index.html");
         }
     });
-}
+};
 
 var displayWarning = function(repo) {
     //add text to warning container
@@ -94,5 +93,5 @@ var displayIssues = function(issues) {
 
 
 };
-getRepoIssues();
+//getRepoIssues();
 getRepoName();
